@@ -9,8 +9,9 @@ Febrero- Junio 2022
 **Integrantes**  
 Munguia Silva Edgar Geovanny  
 Pérez López Alicia Guadalupe  
-
 **Tema: Naive Bayes**  
+
+
 
 
 
