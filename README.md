@@ -1,5 +1,5 @@
 ![logo](/imagenes/tec.png)
-># **Tecnológico Nacional de México  
+># **Tecnológico Nacional de México**
 Instituto Tecnológico Campus Tijuana  
 Ing. en informática/sistemas**  
 **Asignatura**  
@@ -39,4 +39,11 @@ Pérez López Alicia Guadalupe
 - La presunción de independencia Naive muy probablemente no reflejará cómo son los datos en el mundo real.
 - Cuando el conjunto de datos de prueba tiene una característica que no ha sido observada en el conjunto de entrenamiento, el modelo le asignará una probabilidad de cero y será inútil realizar predicciones.
 
+##### Referencias bibliograficas 
+
+- Roman, V. (2021, 9 diciembre). Algoritmos Naive Bayes: Fundamentos e Implementación. Medium. https://medium.com/datos-y-ciencia/algoritmos-naive-bayes-fudamentos-e-implementaci%C3%B3n-4bcb24b307f
+
+- Gonzalez, L. (2020, 21 agosto). Naive Bayes – Teoría. 🤖 Aprende IA. Recuperado 11 de mayo de 2022, de https://aprendeia.com/naive-bayes-teoria-machine-learning/
+
+- Cardellino, F. (2021, 28 abril). Cómo funcionan los clasificadores Naive Bayes: con ejemplos de código de Python. freeCodeCamp.org. Recuperado 11 de mayo de 2022, de https://www.freecodecamp.org/espanol/news/como-funcionan-los-clasificadores-naive-bayes-con-ejemplos-de-codigo-de-python/
 
