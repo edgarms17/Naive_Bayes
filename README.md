@@ -25,5 +25,5 @@ Pérez López Alicia Guadalupe
 - La ecuación Naive Bayes se usa para calcular la probabilidad posterior de cada clase.
 - La clase con la probabilidad posterior más alta es el resultado de la predicción.
 
-![Formula](C:\Users\x\Desktop\Escuela\Formula.png)
+![Formula](/imagenes/Formula.png)
 
