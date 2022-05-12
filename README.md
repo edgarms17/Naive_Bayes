@@ -17,7 +17,7 @@ Pérez López Alicia Guadalupe
  Es un clasificador probabilístico fundamentado en el teorema de Bayes y algunas hipótesis simplificadoras adicionales.
  - El modelo se denomina naïve porque trata todas las variables de predicción propuestas como independientes unas de otras. El bayesiano ingenuo es un algoritmo rápido y escalable que calcula las probabilidades condicionales para las combinaciones de atributos y el atributo de objetivo. 
  
- Para más informacion : [Video](youtube.com/watch?v=949tYJgRvRg)
+ Para más informacion visitar el video en las referencias.
 
 
 >##                     **Pasos para llevar a cabo el algoritmo**
@@ -49,3 +49,4 @@ Pérez López Alicia Guadalupe
 
 - Cardellino, F. (2021, 28 abril). Cómo funcionan los clasificadores Naive Bayes: con ejemplos de código de Python. freeCodeCamp.org. Recuperado 11 de mayo de 2022, de https://www.freecodecamp.org/espanol/news/como-funcionan-los-clasificadores-naive-bayes-con-ejemplos-de-codigo-de-python/
 
+- Gonzalez, A. C. L. (2019, 20 septiembre). NAIVE BAYES - TEORÍA | #46 Curso Machine Learning con Python [Vídeo]. YouTube. https://www.youtube.com/watch?v=949tYJgRvRg
