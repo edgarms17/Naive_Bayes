@@ -52,7 +52,7 @@ Pérez López Alicia Guadalupe
 - Gonzalez, A. C. L. (2019, 20 septiembre). NAIVE BAYES - TEORÍA | #46 Curso Machine Learning con Python [Vídeo]. YouTube. https://www.youtube.com/watch?v=949tYJgRvRg  
 
 >##                       **Ejemplo en código**  
-
+~~~
 package org.apache.spark.examples.mllib    
 
 import org.apache.spark.{SparkConf, SparkContext}    
@@ -84,3 +84,4 @@ object NaiveBayesExample {
     sc.stop()
   }
 }  
+~~~
