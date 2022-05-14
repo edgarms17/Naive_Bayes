@@ -53,18 +53,18 @@ Pérez López Alicia Guadalupe
 
 >##                       **Ejemplo en código**  
 
-`  package org.apache.spark.examples.mllib
+package org.apache.spark.examples.mllib    
 
-import org.apache.spark.{SparkConf, SparkContext}
-import org.apache.spark.mllib.classification.{NaiveBayes, NaiveBayesModel}
-import org.apache.spark.mllib.util.MLUtils
+import org.apache.spark.{SparkConf, SparkContext}    
+import org.apache.spark.mllib.classification.{NaiveBayes, NaiveBayesModel}    
+import org.apache.spark.mllib.util.MLUtils    
 
 
-object NaiveBayesExample {
+object NaiveBayesExample {    
 
-  def main(args: Array[String]): Unit = {
-    val conf = new SparkConf().setAppName("NaiveBayesExample")
-    val sc = new SparkContext(conf)
+  def main(args: Array[String]): Unit = {    
+    val conf = new SparkConf().setAppName("NaiveBayesExample")    
+    val sc = new SparkContext(conf)   
     
     // Load and parse the data file.
     val data = MLUtils.loadLibSVMFile(sc, "data/mllib/sample_libsvm_data.txt")
@@ -83,4 +83,4 @@ object NaiveBayesExample {
     
     sc.stop()
   }
-}  `
+}  
