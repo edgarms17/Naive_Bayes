@@ -1,7 +1,7 @@
 ![logo](/imagenes/tec.png)
 ># **Tecnológico Nacional de México**
 Instituto Tecnológico Campus Tijuana  
-Ing. en informática/sistemas**  
+Ing. en informática/sistemas  
 **Asignatura**  
 Datos Masivos  
 **Semestre**  
