@@ -49,4 +49,35 @@ Pérez López Alicia Guadalupe
 
 - Cardellino, F. (2021, 28 abril). Cómo funcionan los clasificadores Naive Bayes: con ejemplos de código de Python. freeCodeCamp.org. Recuperado 11 de mayo de 2022, de https://www.freecodecamp.org/espanol/news/como-funcionan-los-clasificadores-naive-bayes-con-ejemplos-de-codigo-de-python/
 
-- Gonzalez, A. C. L. (2019, 20 septiembre). NAIVE BAYES - TEORÍA | #46 Curso Machine Learning con Python [Vídeo]. YouTube. https://www.youtube.com/watch?v=949tYJgRvRg
+- Gonzalez, A. C. L. (2019, 20 septiembre). NAIVE BAYES - TEORÍA | #46 Curso Machine Learning con Python [Vídeo]. YouTube. https://www.youtube.com/watch?v=949tYJgRvRg  
+
+>##                       **Ejemplo en código**  
+
+package org.apache.spark.examples.mllib
+
+import org.apache.spark.{SparkConf, SparkContext}
+import org.apache.spark.mllib.classification.{NaiveBayes, NaiveBayesModel}
+import org.apache.spark.mllib.util.MLUtils
+
+object NaiveBayesExample {
+
+  def main(args: Array[String]): Unit = {
+    val conf = new SparkConf().setAppName("NaiveBayesExample")
+    val sc = new SparkContext(conf)
+    // Load and parse the data file.
+    val data = MLUtils.loadLibSVMFile(sc, "data/mllib/sample_libsvm_data.txt")
+
+    // Split data into training (60%) and test (40%).
+    val Array(training, test) = data.randomSplit(Array(0.6, 0.4))
+
+    val model = NaiveBayes.train(training, lambda = 1.0, modelType = "multinomial")
+
+    val predictionAndLabel = test.map(p => (model.predict(p.features), p.label))
+    val accuracy = 1.0 * predictionAndLabel.filter(x => x._1 == x._2).count() / test.count()
+
+    // Save and load model
+    model.save(sc, "target/tmp/myNaiveBayesModel")
+    val sameModel = NaiveBayesModel.load(sc, "target/tmp/myNaiveBayesModel")
+    sc.stop()
+  }
+}
