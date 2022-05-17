@@ -93,3 +93,5 @@ val precision = evaluator.evaluate (predictions)
 //Imprimir la tasa de error
 println ("tasa de error =" + (1-precision))
 ~~~
+>##                            **Resultados**  
+![bayes](/imagenes/bayes.PNG)
