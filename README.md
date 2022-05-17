@@ -53,35 +53,43 @@ Pérez López Alicia Guadalupe
 
 >##                       **Ejemplo en código**  
 ~~~
-package org.apache.spark.examples.mllib    
+//Importar las librerias necesarias
 
-import org.apache.spark.{SparkConf, SparkContext}    
-import org.apache.spark.mllib.classification.{NaiveBayes, NaiveBayesModel}    
-import org.apache.spark.mllib.util.MLUtils    
+import org.apache.spark.ml.classification.NaiveBayes
+import org.apache.spark.ml.evaluation.MulticlassClassificationEvaluator
+import org.apache.spark.sql.SparkSession
 
+//Cargar los datos especificando la ruta del archivo
 
-object NaiveBayesExample {    
+val data = spark.read.format("libsvm").load("C:/spark/spark-2.4.8-bin-hadoop2.7/data/mllib/sample_libsvm_data.txt")
 
-  def main(args: Array[String]): Unit = {    
-    val conf = new SparkConf().setAppName("NaiveBayesExample")    
-    val sc = new SparkContext(conf)   
-    
-    // Load and parse the data file.
-    val data = MLUtils.loadLibSVMFile(sc, "data/mllib/sample_libsvm_data.txt")
+println ("Numero de lineas en el archivo de datos:" + data.count ())
 
-    // Split data into training (60%) and test (40%).
-    val Array(training, test) = data.randomSplit(Array(0.6, 0.4))
+//Mostrar las primeras 20 líneas por defecto
 
-    val model = NaiveBayes.train(training, lambda = 1.0, modelType = "multinomial")
+data.show()
 
-    val predictionAndLabel = test.map(p => (model.predict(p.features), p.label))
-    val accuracy = 1.0 * predictionAndLabel.filter(x => x._1 == x._2).count() / test.count()
+//Divida aleatoriamente el conjunto de datos en conjunto de entrenamiento y conjunto de prueba de acuerdo con los pesos proporcionados. También puede especificar una seed
 
-    // Save and load model
-    model.save(sc, "target/tmp/myNaiveBayesModel")
-    val sameModel = NaiveBayesModel.load(sc, "target/tmp/myNaiveBayesModel")
-    
-    sc.stop()
-  }
-}  
+val Array (trainingData, testData) = data.randomSplit (Array (0.7, 0.3), 100L)
+// El resultado es el tipo de la matriz, y la matriz almacena los datos de tipo DataSet
+
+//Incorporar al conjunto de entrenamiento (operación de ajuste) para entrenar un modelo bayesiano
+val naiveBayesModel = new NaiveBayes().fit(trainingData)
+
+//El modelo llama a transform() para hacer predicciones y generar un nuevo DataFrame.
+
+val predictions = naiveBayesModel.transform(testData)
+
+//Salida de datos de resultados de predicción
+predictions.show()
+
+//Evaluación de la precisión del modelo
+
+val evaluator = new MulticlassClassificationEvaluator().setLabelCol("label").setPredictionCol("prediction").setMetricName("accuracy")
+// Precisión
+val precision = evaluator.evaluate (predictions) 
+
+//Imprimir la tasa de error
+println ("tasa de error =" + (1-precision))
 ~~~
